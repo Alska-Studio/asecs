@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "allowJs": false,
+    "target": "ES2017",
+    "module": "ES2020",
+    "lib": [ "es2020", ],
+    "strict": true,
+    "declaration": true,
+    "declarationDir": "global/dist",
+    "outDir": "global/dist",
+    "resolveJsonModule": true,
+    "moduleResolution": "bundler",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "incremental": false,
+    "isolatedModules": true,
+    "baseUrl": ".",
+    "rootDir": ".",
+    "paths": {
+      "~/": ["./global"],
+      "~/*": ["./global/*"],
+    },
+  }
+}

@@ -1,0 +1,30 @@
+.DS_Store
+node_modules
+/build
+/.svelte-kit
+/package
+
+# .env
+.env.*
+!.env
+!.env.dev
+!.env.stage
+!.env.feature
+!.env.feature-2
+!.env.feature-3
+!.env.prod
+
+# Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+.vercel
+
+## Panda
+styled-system
+styled-system-studio
+
+# sst
+.sst
+
+# parachute generated files
+parachute

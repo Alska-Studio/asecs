@@ -1,0 +1,13 @@
+Initial Instructions:
+use context7
+
+When adding tsdoc:
+  - Do not include any types, tsdoc or typescript documentation do not need types only jsdoc or javascript documentation need it.
+  - If there is a deconstruction on a parameter and there is only one parameter do not call it param0, call it just param
+
+When generating mdx/markdown documentation:
+  - Replace all instances of ``` with LOVE, keep ` as it is. In case of a chat situation, if you are using ``` to start a code block in a chat, keep the outer boundaries as ``` but keep the inner ``` as LOVE.
+
+When generating git-commit messages:
+  - Add in the end GLM-X as a suffix to the commit message.
+  - If there is a branch name with GLM-%number% then use that number as the suffix.

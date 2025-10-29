@@ -1,0 +1,37 @@
+{
+  "acknowledged-issue-numbers": [
+    34892
+  ],
+  "vpc-provider:account=266671103811:filter.isDefault=true:region=eu-north-1:returnAsymmetricSubnets=true": {
+    "vpcId": "vpc-0b9706e930ab76842",
+    "vpcCidrBlock": "172.31.0.0/16",
+    "ownerAccountId": "266671103811",
+    "availabilityZones": [],
+    "subnetGroups": [
+      {
+        "name": "Public",
+        "type": "Public",
+        "subnets": [
+          {
+            "subnetId": "subnet-0386c4f74ab43724f",
+            "cidr": "172.31.16.0/20",
+            "availabilityZone": "eu-north-1a",
+            "routeTableId": "rtb-0295c4bbf5d126931"
+          },
+          {
+            "subnetId": "subnet-04182ab6f8f49bb68",
+            "cidr": "172.31.32.0/20",
+            "availabilityZone": "eu-north-1b",
+            "routeTableId": "rtb-0295c4bbf5d126931"
+          },
+          {
+            "subnetId": "subnet-0528185f01b8cbbc1",
+            "cidr": "172.31.0.0/20",
+            "availabilityZone": "eu-north-1c",
+            "routeTableId": "rtb-0295c4bbf5d126931"
+          }
+        ]
+      }
+    ]
+  }
+}

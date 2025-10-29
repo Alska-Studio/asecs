@@ -1,0 +1,84 @@
+name: ASECS Cloud App staging pipeline
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      app:
+        description: 'Which app to forcebuild'
+        required: true
+        default: 'asecs-frontpage'
+        type: choice
+        options:
+          - asecs-frontpage
+          - asecs-cms
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check_changes:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      exists-asecs-frontpage: ${{ steps.filter-asecs-frontpage.outputs.exists }}
+      exists-asecs-cms: ${{ steps.filter-asecs-cms.outputs.exists }}
+    steps:
+      - uses: yumemi-inc/path-filter@v2
+        id: filter-asecs-frontpage
+        with:
+          patterns: |
+            apps/asecs/asecs/**
+      - uses: yumemi-inc/path-filter@v2
+        id: filter-asecs-cms
+        with:
+          patterns: |
+            apps/asecs/cms/**
+      - uses: yumemi-inc/path-filter@v2
+        id: filter-global
+        with:
+          patterns: |
+            global/**
+
+  global_pipeline:
+    uses: ./.github/workflows/global.yml
+    needs: [check_changes]
+    if: ${{ needs.check_changes.outputs.exists-asecs-frontpage == 'true' || needs.check_changes.outputs.exists-asecs-cms == 'true' || github.event.inputs.app == 'asecs-frontpage' || github.event.inputs.app == 'asecs-cms' }}
+    secrets:
+      aws_akey: ${{ secrets.STAGE_AWS_ACCESS_KEY_ID }}
+      aws_skey: ${{ secrets.STAGE_AWS_SECRET_ACCESS_KEY }}
+      slack_webhook: ${{ secrets.SLACK_WEBHOOK }}
+      pat_token: ${{ secrets.PAT_TOKEN }}
+    with:
+      environment: staging
+      stage: stage
+
+  frontpage_pipeline:
+    uses: ./.github/workflows/asecs-frontpage.yml
+    needs: [check_changes]
+    if: ${{ needs.check_changes.outputs.exists-asecs-frontpage == 'true' || github.event.inputs.app == 'asecs-frontpage' }}
+    secrets:
+      aws_akey: ${{ secrets.STAGE_AWS_ACCESS_KEY_ID }}
+      aws_skey: ${{ secrets.STAGE_AWS_SECRET_ACCESS_KEY }}
+      slack_webhook: ${{ secrets.SLACK_WEBHOOK }}
+      pat_token: ${{ secrets.PAT_TOKEN }}
+    with:
+      environment: staging
+      stage: stage
+
+  cms_pipeline:
+    uses: ./.github/workflows/asecs-cms.yml
+    needs: [check_changes]
+    if: ${{ needs.check_changes.outputs.exists-asecs-cms == 'true' || github.event.inputs.app == 'asecs-cms' }}
+    secrets:
+      aws_akey: ${{ secrets.STAGE_AWS_ACCESS_KEY_ID }}
+      aws_skey: ${{ secrets.STAGE_AWS_SECRET_ACCESS_KEY }}
+      slack_webhook: ${{ secrets.SLACK_WEBHOOK }}
+      pat_token: ${{ secrets.PAT_TOKEN }}
+    with:
+      environment: staging
+      stage: stage

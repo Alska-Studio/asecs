@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json.schemastore.org/syncpackrc.json",
+  "source": [
+    "apps/**/*/package.json",
+    "packages/**/*/package.json"
+  ],
+  "versionGroups": [
+    {
+      "dependencies": [
+        "@agapi/*",
+        "@glimja/*",
+        "@agapi-development-tools/*"
+      ],
+      "isIgnored": true
+    },
+    {
+      "dependencies": [
+        "svelte",
+        "vite",
+        "eslint",
+        "typescript",
+        "@sveltejs/*",
+        "@zag-js/*"
+      ]
+    }
+  ],
+  "sortAz": ["dependencies", "devDependencies", "peerDependencies"],
+  "semverGroups": [
+    {
+      "range": ""
+    }
+  ]
+}

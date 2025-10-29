@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "target": "esnext",
+    "module": "esnext",
+    "outDir": "./dist",
+    "types": ["node"],
+    "rootDir": "./lib",
+    "declaration": true,
+    "esModuleInterop": true,
+    "moduleResolution": "bundler",
+    "isolatedModules": true
+  },
+  "include": [
+    "./lib/**/*.ts"
+  ]
+}

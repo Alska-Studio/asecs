@@ -1,0 +1,41 @@
+# packages/*
+[submodule "packages/agapi-ui"]
+	path = packages/agapi-ui
+	url = git@github.com:Alska-Studio/agapi-ui.git
+
+# packages/development/*
+[submodule "packages/development/parachute"]
+	path = packages/development/parachute
+	url = git@github.com:Alska-Studio/parachute.git
+
+[submodule "packages/development/sveltekit-aws-adapter"]
+	path = packages/development/sveltekit-aws-adapter
+	url = git@github.com:Alska-Studio/sveltekit-aws-adapter.git
+
+[submodule "packages/development/aws-local-api"]
+	path = packages/development/aws-local-api
+	url = git@github.com:Alska-Studio/aws-local-api.git
+
+[submodule "packages/development/vite-sveltekit-env"]
+	path = packages/development/vite-sveltekit-env
+	url = git@github.com:Alska-Studio/vite-sveltekit-env.git
+
+[submodule "packages/development/phosphor-svelte"]
+	path = packages/development/phosphor-svelte
+	url = git@github.com:Alska-Studio/phosphor-svelte.git
+
+[submodule "packages/development/rollup-monorepo-plugin"]
+	path = packages/development/rollup-monorepo-plugin
+	url = git@github.com:Alska-Studio/rollup-monorepo-plugin.git
+
+[submodule "packages/development/site-load-tester"]
+	path = packages/development/site-load-tester
+	url = git@github.com:Alska-Studio/site-load-tester.git
+
+[submodule "packages/development/common-utilities"]
+	path = packages/development/common-utilities
+	url = git@github.com:Alska-Studio/common-utilities.git
+
+[submodule "packages/development/eslint-config"]
+	path = packages/development/eslint-config
+	url = git@github.com:Alska-Studio/eslint-config.git

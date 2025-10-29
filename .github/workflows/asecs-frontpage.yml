@@ -1,0 +1,102 @@
+name: Build and deploy Glimja app
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+      stage:
+        required: true
+        type: string
+    secrets:
+      aws_akey:
+        required: true
+      aws_skey:
+        required: true
+      slack_webhook:
+        required: true
+      pat_token:
+        required: true
+
+defaults:
+  run:
+    working-directory: ./apps/glimja/glimja
+
+jobs:
+  glimja_build:
+    name: Build
+    environment: ${{ inputs.environment }}
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          token: ${{ secrets.pat_token }}
+
+      - name: Slack notify preparing
+        uses: slackapi/slack-github-action@v2.0.0
+        id: notify-prep
+        with:
+          errors: true
+          webhook: ${{ secrets.slack_webhook }}
+          webhook-type: incoming-webhook
+          payload: |
+            text: "Preparing build env (packages/node/etc) for Glimja `${{ inputs.environment }}` "
+            blocks:
+              - type: "section"
+                text:
+                  type: "mrkdwn"
+                  text: "Preparing build env (packages/node/etc) for Glimja `${{ inputs.environment }}` "
+
+      - name: Set NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+#          cache: 'pnpm'
+
+      - name: Set package mgr
+        uses: pnpm/action-setup@v4
+        with:
+#         package_json_file: ./apps/glimja/glimja/package.json
+          run_install: |
+            - recursive: false
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.aws_akey }}
+          aws-secret-access-key: ${{ secrets.aws_skey }}
+          aws-region: eu-north-1
+
+      - name: Slack notify build started
+        uses: slackapi/slack-github-action@v2.0.0
+        id: notify-start
+        with:
+          webhook: ${{ secrets.slack_webhook }}
+          webhook-type: incoming-webhook
+          payload: |
+            text: "Starting build/deploy for Glimja New `${{ inputs.environment }}`\n Triggered by *${{ github.actor }}* with *${{ github.event_name }}*\n SHA = *${{ github.sha }}*\n Head commit msg: `${{ github.event.head_commit.message }}` "
+            blocks:
+              - type: "section"
+                text:
+                  type: "mrkdwn"
+                  text: "Starting build/deploy for Glimja New `${{ inputs.environment }}`\n Triggered by *${{ github.actor }}* with *${{ github.event_name }}*\n SHA = *${{ github.sha }}*\n Head commit msg: `${{ github.event.head_commit.message }}` "
+
+      - name: Run deploy
+        run: pnpm run pipeline:deploy:${{ inputs.stage }}
+
+      - name: Slack notify build finished
+        uses: slackapi/slack-github-action@v2.0.0
+        id: notify-finish
+        with:
+          webhook: ${{ secrets.slack_webhook }}
+          webhook-type: incoming-webhook
+          payload: |
+            text: "Finished build/deploy for Glimja `${{ inputs.environment }}`\n Status: *${{ job.status }}*"
+            blocks:
+              - type: "section"
+                text:
+                  type: "mrkdwn"
+                  text: "Finished build/deploy for Glimja `${{ inputs.environment }}`\n Status: *${{ job.status }}*"

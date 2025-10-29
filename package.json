@@ -1,0 +1,33 @@
+{
+  "name": "@asecs/monorepo",
+  "private": true,
+  "packageManager": "pnpm@10.18.3",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "clean": "find . -name '.DS_Store' -depth -exec rm {} \\;",
+    "purge": "npm run clean && npm cache clean --force && (pnpm store prune && find . \\( -name 'node_modules' -o -name '.svelte-kit' \\) -type d -prune -exec rm -rf {} +) && rm -rf pnpm-lock.yaml",
+    "postinstall": "git submodule update --init --recursive",
+    "bootstrap:dev": "cdk bootstrap --app '' --profile asecs-dev aws://266671103811/us-east-1 aws://266671103811/eu-north-1",
+    "bootstrap:stage": "cdk bootstrap --app '' --profile asecs-stage aws://273354650290/us-east-1 aws://273354650290/eu-north-1",
+    "bootstrap:prod": "cdk bootstrap --app '' --profile asecs-prod aws://890742576500/us-east-1 aws://890742576500/eu-north-1",
+    "deploy:dev": "NODE_ENV=dev cdk deploy --all --force --require-approval never --profile asecs-dev",
+    "deploy:stage": "NODE_ENV=stage cdk deploy --all --force --require-approval never --profile asecs-stage",
+    "deploy:prod:force": "NODE_ENV=prod cdk deploy --all --force --require-approval never --profile asecs-prod",
+    "destroy:dev:danger": "NODE_ENV=dev cdk destroy --all --force --require-approval never --profile asecs-dev",
+    "destroy:stage:danger": "NODE_ENV=dev cdk destroy --all --force --require-approval never --profile asecs-dev",
+    "destroy:prod:danger:force": "NODE_ENV=dev cdk destroy --all --force --require-approval never --profile asecs-dev",
+    "pipeline:deploy:dev": "NODE_ENV=dev cdk deploy --all --force --require-approval never",
+    "pipeline:deploy:stage": "NODE_ENV=stage cdk deploy --all --force --require-approval never",
+    "pipeline:deploy:prod": "NODE_ENV=prod cdk deploy --all --force --require-approval never"
+  },
+  "devDependencies": {
+    "aws-cdk": "2.1029.3",
+    "aws-cdk-lib": "2.217.0",
+    "constructs": "10.4.2",
+    "esbuild": "0.25.10",
+    "syncpack": "13.0.0",
+    "tsx": "4.20.6"
+  }
+}

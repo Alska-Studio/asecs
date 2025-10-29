@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: */last-30-day-price
+Sitemap: https://glimja.com/sitemap.xml
+Sitemap: https://glimja.com/nb/sitemap.xml
+Sitemap: https://glimja.com/en/sitemap.xml
+Sitemap: https://glimja.com/da/sitemap.xml
+Sitemap: https://glimja.com/es/sitemap.xml
+Sitemap: https://glimja.com/fi/sitemap.xml

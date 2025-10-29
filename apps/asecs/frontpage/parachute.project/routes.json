@@ -1,0 +1,8 @@
+{
+  "pathnames": {
+    "/about/[...rest]": {
+      "sv": "/om/[...rest]",
+      "en": "/start/[...rest]"
+    }
+  }
+}

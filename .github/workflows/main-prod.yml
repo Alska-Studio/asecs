@@ -1,0 +1,58 @@
+name: ASECS Cloud App Production pipeline
+
+on:
+  push:
+    tags:
+      - 'gl-*'
+      - 'hg-*'
+  workflow_dispatch:
+    inputs:
+      app:
+        description: 'Which app to forcebuild'
+        required: true
+        default: 'asecs-frontpage'
+        type: choice
+        options:
+        - asecs-frontpage
+        - asecs-cms
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  global_pipeline:
+    uses: ./.github/workflows/global.yml
+    if: ${{ startsWith(github.ref, 'refs/tags/fr-') || startsWith(github.ref, 'refs/tags/cm-') || github.event.inputs.app == 'asecs-frontpage' || github.event.inputs.app == 'asecs-cms' }}
+    secrets:
+      aws_akey: ${{ secrets.PROD_AWS_ACCESS_KEY_ID }}
+      aws_skey: ${{ secrets.PROD_AWS_SECRET_ACCESS_KEY }}
+      slack_webhook: ${{ secrets.SLACK_WEBHOOK }}
+      pat_token: ${{ secrets.PAT_TOKEN }}
+    with:
+      environment: production
+      stage: prod
+
+  glimja_pipeline:
+    uses: ./.github/workflows/asecs-frontpage.yml
+    if: ${{ startsWith(github.ref, 'refs/tags/fr-') || github.event.inputs.app == 'asecs-frontpage' }}
+    secrets:
+      aws_akey: ${{ secrets.PROD_AWS_ACCESS_KEY_ID }}
+      aws_skey: ${{ secrets.PROD_AWS_SECRET_ACCESS_KEY }}
+      slack_webhook: ${{ secrets.SLACK_WEBHOOK }}
+      pat_token: ${{ secrets.PAT_TOKEN }}
+    with:
+      environment: production
+      stage: prod
+
+  happygreen_pipeline:
+    uses: ./.github/workflows/asecs-cms.yml
+    if: ${{ startsWith(github.ref, 'refs/tags/cm-') || github.event.inputs.app == 'asecs-cms' }}
+    secrets:
+      aws_akey: ${{ secrets.PROD_AWS_ACCESS_KEY_ID }}
+      aws_skey: ${{ secrets.PROD_AWS_SECRET_ACCESS_KEY }}
+      slack_webhook: ${{ secrets.SLACK_WEBHOOK }}
+      pat_token: ${{ secrets.PAT_TOKEN }}
+    with:
+      environment: production
+      stage: prod

@@ -1,0 +1,32 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+dist
+distApi
+cdk.out
+
+# Testing
+coverage
+
+# Svelte
+.svelte-kit
+
+# NestJS
+.next
+
+# AWS
+cdk.out
+
+# Misc
+.DS_Store
+*.pem
+dist
+.mongodb-data
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

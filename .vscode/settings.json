@@ -1,0 +1,24 @@
+{
+  "eslint.workingDirectories": [
+    {
+      "mode": "auto"
+    }
+  ],
+  "svelte.enable-ts-plugin": true,
+  "editor.tabSize": 2,
+  "editor.renderWhitespace": "all",
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "editor.formatOnSave": false,
+  "files.trimTrailingWhitespace": true,
+  "workbench.editor.labelFormat": "short",
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  },
+  "svelte.plugin.svelte.defaultScriptLanguage": "ts",
+  "eslint.validate": [
+    "svelte",
+    "typescript",
+    "javascript"
+  ],
+}
