@@ -1,5 +1,0 @@
-{
-  "$schema": "https://inlang.com/schema/project-settings",
-  "baseLocale": "sv",
-  "locales": ["en", "sv"]
-}

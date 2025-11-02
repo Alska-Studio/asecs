@@ -1,0 +1,1 @@
+export type * from '@asecs/shared/payload-config';

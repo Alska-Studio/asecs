@@ -39,3 +39,7 @@
 [submodule "packages/development/eslint-config"]
 	path = packages/development/eslint-config
 	url = git@github.com:Alska-Studio/eslint-config.git
+
+[submodule "packages/development/nextjs-aws-adapter"]
+	path = packages/development/nextjs-aws-adapter
+	url = git@github.com:Alska-Studio/nextjs-aws-adapter.git

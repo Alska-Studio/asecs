@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "target": "esnext",
+    "module": "esnext",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "declaration": true,
+    "esModuleInterop": true,
+    "moduleResolution": "bundler",
+    "isolatedModules": true
+  },
+  "include": ["**/*.ts", "**/*.d.ts", "./package.json"],
+  "exclude": ["node_modules", "dist"]
+}

@@ -16,6 +16,7 @@ coverage
 
 # NestJS
 .next
+next.out
 
 # AWS
 cdk.out
