@@ -9,7 +9,10 @@ const __dirname = path.dirname(filename);
 const profile = 'asecs-dev';
 
 const main = async () => {
-  createKeyPair('mongodb-cdk-key', profile);
+  // Prepare none CDK resources
+  // createKeyPair('mongodb-cdk-key', profile);
+
+  // Deploy CDK stack
   await deploy(path.resolve(__dirname, './app.ts'), profile);
 };
 

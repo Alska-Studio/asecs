@@ -1,10 +1,12 @@
-import { Stack, StackProps, CfnOutput } from 'aws-cdk-lib';
+import { CustomStack } from '@agapi-development-tools/nextjs-aws-adapter/cdk';
+import { StackProps, CfnOutput } from 'aws-cdk-lib';
 import * as ec2 from 'aws-cdk-lib/aws-ec2';
 import { Construct } from 'constructs';
+import { NextjsProps } from 'node_modules/@agapi-development-tools/nextjs-aws-adapter/src/cdk/types';
 
-export class MongoDbEc2Stack extends Stack {
-  constructor(scope: Construct, id: string, props?: StackProps) {
-    super(scope, id, props);
+export class MongoDbEc2Stack extends CustomStack {
+  constructor(scope: Construct, id: string, props: NextjsProps, stackProps: StackProps) {
+    super(scope, `${id}-mongodb`, props, stackProps);
 
     // -------------------------------
     // Configuration

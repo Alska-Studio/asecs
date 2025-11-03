@@ -45,9 +45,9 @@ new SvelteKitApp(app, `${brand}-site-${stage}`, {
     brandSlug: brand
   },
   cdn: {
-    certificateArn: certificateArn,
-    domainNames: domainNames,
-    alternateNames: alternateNames,
+    // certificateArn: certificateArn,
+    // domainNames: domainNames,
+    // alternateNames: alternateNames,
     waf: {
       enabled: ['stage', 'prod'].includes(stage), // Enable only in production and stage
       rules: wafRules
