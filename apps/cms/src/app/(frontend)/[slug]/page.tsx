@@ -12,7 +12,7 @@ export async function generateStaticParams() {
       collection: 'pages',
       draft: false,
       limit: 1000,
-      overrideAccess: false,
+      overrideAccess: true, // Bypass access control for build-time static generation
       pagination: false
     });
 

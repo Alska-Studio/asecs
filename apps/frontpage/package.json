@@ -29,7 +29,6 @@
     "@melt-ui/pp": "0.3.2",
     "@pandacss/dev": "1.4.2",
     "@pandacss/preset-panda": "1.4.2",
-    "@payloadcms/richtext-lexical": "3.61.1",
     "@playwright/test": "1.56.0",
     "@rollup/plugin-alias": "5.1.1",
     "@rollup/plugin-commonjs": "28.0.6",
@@ -72,7 +71,7 @@
     "@agapi-development-tools/parachute": "workspace:*",
     "@agapi-development-tools/common-utilities": "workspace:*",
     "@agapi/ui": "workspace:*",
-    "@payloadcms/db-mongodb": "3.61.1",
+    "@payloadcms/db-mongodb": "3.62.1",
     "@types/aws-lambda": "8.10.146",
     "@types/cookie": "1.0.0",
     "@zag-js/svelte": "1.26.1",
@@ -86,10 +85,9 @@
     "lambda-warmer": "2.3.0",
     "node-fetch": "3.3.2",
     "rollup": "4.52.4",
-    "payload": "3.61.1",
+    "payload": "3.62.1",
     "source-map-support": "0.5.21",
     "tsx": "4.20.6",
-    "yaml": "2.8.1",
-    "sharp": "0.34.4"
+    "yaml": "2.8.1"
   }
 }

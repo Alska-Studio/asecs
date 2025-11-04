@@ -1,7 +1,6 @@
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
-import sharp from 'sharp';
 import { buildConfig } from 'payload';
 import { lexicalEditor } from '@payloadcms/richtext-lexical';
 import { mongooseAdapter } from '@payloadcms/db-mongodb';
@@ -54,8 +53,7 @@ export default buildConfig({
   collections: collections,
   blocks: blocks,
   globals: globals,
-  custom: {},
-  sharp
+  custom: {}
 });
 
 import type { Config } from './payload-types';
