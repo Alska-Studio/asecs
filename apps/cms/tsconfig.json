@@ -17,9 +17,9 @@
     "paths": {
       "@/*": ["./src/*"],
       "@payload-config": ["../_shared/src/payload.config.ts"],
-      "@payload-types": ["../_shared/src/payload.types.ts"]
+      "@payload-types": ["../_shared/src/payload-types.ts"]
     },
-    "target": "ES2022",
+    "target": "ES2022"
   },
   "include": [
     "**/*.ts",
@@ -30,5 +30,5 @@
   ],
   "exclude": [
     "node_modules"
-  ],
+  ]
 }

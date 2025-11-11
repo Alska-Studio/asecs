@@ -11,7 +11,8 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
 
   return (
     <html lang="en">
-      <body>
+      {/* We may get some hydration errors running locally with chromium plugins like ColorZilla... */}
+      <body suppressHydrationWarning>
         <main>{children}</main>
       </body>
     </html>
