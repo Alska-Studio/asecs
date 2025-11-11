@@ -13,13 +13,5 @@
       "node"
     ]
     // Path aliases are handled by https://kit.svelte.dev/docs/configuration#alias
-  },
-  "typeRoots": [
-    "./types"
-  ],
-  "rootDirs": [
-    ".",
-    ".svelte-kit/types",
-    "./types"
-  ]
+  }
 }

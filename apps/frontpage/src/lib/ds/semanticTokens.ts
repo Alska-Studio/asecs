@@ -5,7 +5,7 @@ export const semanticTokens = defineSemanticTokens({
     "text": {
       "placeholder": {
         "type": "color",
-        "value": "{colors.neutral.200}"
+        "value": "{colors.neutral.500}"
       },
       "heading": {
         "type": "color",
@@ -13,29 +13,29 @@ export const semanticTokens = defineSemanticTokens({
       },
       "body": {
         "type": "color",
-        "value": "{colors.primary.900}"
+        "value": "{colors.primary.950}"
       },
       "subdued": {
         "type": "color",
-        "value": "{colors.neutral.700}"
+        "value": "{colors.neutral.600}"
       },
       "vibrant": {
         "type": "color",
-        "value": "{colors.primary.800}"
+        "value": "{colors.primary.500}"
       },
       "helper": {
         "type": "color",
-        "value": "{colors.neutral.800}"
+        "value": "{colors.neutral.500}"
       },
       "contrast": {
         "type": "color",
-        "value": "{colors.neutral.50}"
+        "value": "{colors.mono.off-white}"
       }
     },
     "borders": {
       "base": {
         "type": "color",
-        "value": "{colors.neutral.400}"
+        "value": "{colors.neutral.300}"
       },
       "subdued": {
         "type": "color",
@@ -46,97 +46,41 @@ export const semanticTokens = defineSemanticTokens({
       "success": {
         "border": {
           "type": "color",
-          "value": "{colors.success.700}"
+          "value": "{colors.success.400}"
         },
         "foreground": {
           "type": "color",
-          "value": "{colors.success.800}"
+          "value": "{colors.success.400}"
         },
         "background": {
           "type": "color",
-          "value": "{colors.success.50}"
-        }
-      },
-      "alert": {
-        "border": {
-          "type": "color",
-          "value": "{colors.alert.700}"
-        },
-        "background": {
-          "type": "color",
-          "value": "{colors.alert.50}"
-        },
-        "foreground": {
-          "type": "color",
-          "value": "{colors.alert.700}"
+          "value": "{colors.neutral.100}"
         }
       },
       "error": {
         "border": {
           "type": "color",
-          "value": "{colors.error.700}"
+          "value": "{colors.error.400}"
         },
         "background": {
           "type": "color",
-          "value": "{colors.error.50}"
+          "value": "{colors.neutral.50}"
         },
         "foreground": {
           "type": "color",
-          "value": "{colors.error.800}"
+          "value": "{colors.error.400}"
         }
       }
     },
     "forms": {
       "action": {
         "type": "color",
-        "value": "{colors.primary.800}"
+        "value": "{colors.secondary.100}"
       }
     },
     "surface": {
       "primary": {
         "subdued": {
-          "background": {
-            "type": "color",
-            "value": "{colors.primary.100}"
-          },
-          "foreground": {
-            "type": "color",
-            "value": "{colors.primary.800}"
-          },
-          "border": {
-            "type": "color",
-            "value": "{colors.primary.400}"
-          }
-        },
-        "vibrant": {
-          "background": {
-            "type": "color",
-            "value": "{colors.primary.800}"
-          },
-          "foreground": {
-            "type": "color",
-            "value": "{colors.primary.100}"
-          },
-          "border": {
-            "type": "color",
-            "value": "{colors.primary.300}"
-          }
-        },
-        "contrast": {
-          "background": {
-            "type": "color",
-            "value": "{colors.primary.900}"
-          },
-          "foreground": {
-            "type": "color",
-            "value": "{colors.primary.100}"
-          },
-          "border": {
-            "type": "color",
-            "value": "{colors.primary.600}"
-          }
-        },
-        "tonal": {
           "background": {
             "type": "color",
             "value": "{colors.primary.200}"
@@ -147,7 +91,81 @@ export const semanticTokens = defineSemanticTokens({
           },
           "border": {
             "type": "color",
+            "value": "{colors.primary.300}"
+          },
+          "highlight": {
+            "type": "color",
+            "value": "{colors.primary.600}"
+          },
+          "accent": {
+            "type": "color",
+            "value": "{colors.mono.off-white}"
+          }
+        },
+        "vibrant": {
+          "background": {
+            "type": "color",
+            "value": "{colors.primary.800}"
+          },
+          "foreground": {
+            "type": "color",
+            "value": "{colors.secondary.100}"
+          },
+          "border": {
+            "type": "color",
             "value": "{colors.primary.400}"
+          },
+          "highlight": {
+            "type": "color",
+            "value": "{colors.primary.200}"
+          },
+          "accent": {
+            "type": "color",
+            "value": "{colors.primary.500}"
+          }
+        },
+        "contrast": {
+          "background": {
+            "type": "color",
+            "value": "{colors.primary.900}"
+          },
+          "foreground": {
+            "type": "color",
+            "value": "{colors.secondary.50}"
+          },
+          "border": {
+            "type": "color",
+            "value": "{colors.primary.500}"
+          },
+          "highlight": {
+            "type": "color",
+            "value": "{colors.primary.200}"
+          },
+          "accent": {
+            "type": "color",
+            "value": "{colors.primary.800}"
+          }
+        },
+        "tonal": {
+          "background": {
+            "type": "color",
+            "value": "{colors.primary.400}"
+          },
+          "foreground": {
+            "type": "color",
+            "value": "{colors.secondary.100}"
+          },
+          "border": {
+            "type": "color",
+            "value": "{colors.primary.500}"
+          },
+          "highlight": {
+            "type": "color",
+            "value": "{colors.primary.100}"
+          },
+          "accent": {
+            "type": "color",
+            "value": "{colors.primary.200}"
           }
         }
       },
@@ -155,13 +173,25 @@ export const semanticTokens = defineSemanticTokens({
         "background": {
           "type": "color",
           "value": "{colors.neutral.50}"
+        },
+        "foreground": {
+          "type": "color",
+          "value": "{colors.text.body}"
+        },
+        "highlight": {
+          "type": "color",
+          "value": "{colors.primary.400}"
+        },
+        "accent": {
+          "type": "color",
+          "value": "{colors.mono.off-white}"
         }
       },
       "secondary": {
         "subdued": {
           "background": {
             "type": "color",
-            "value": "{colors.secondary.100}"
+            "value": "{colors.secondary.50}"
           },
           "foreground": {
             "type": "color",
@@ -169,7 +199,15 @@ export const semanticTokens = defineSemanticTokens({
           },
           "border": {
             "type": "color",
-            "value": "{colors.secondary.400}"
+            "value": "{colors.secondary.600}"
+          },
+          "highlight": {
+            "type": "color",
+            "value": "{colors.secondary.600}"
+          },
+          "accent": {
+            "type": "color",
+            "value": "{colors.mono.off-white}"
           }
         },
         "contrast": {
@@ -183,27 +221,43 @@ export const semanticTokens = defineSemanticTokens({
           },
           "border": {
             "type": "color",
-            "value": "{colors.secondary.400}"
+            "value": "{colors.secondary.200}"
+          },
+          "highlight": {
+            "type": "color",
+            "value": "{colors.secondary.300}"
+          },
+          "accent": {
+            "type": "color",
+            "value": "{colors.secondary.800}"
           }
         },
         "vibrant": {
           "background": {
             "type": "color",
-            "value": "{colors.secondary.800}"
+            "value": "{colors.secondary.700}"
           },
           "foreground": {
             "type": "color",
-            "value": "{colors.secondary.100}"
+            "value": "{colors.secondary.50}"
           },
           "border": {
             "type": "color",
-            "value": "{colors.secondary.400}"
+            "value": "{colors.secondary.600}"
+          },
+          "highlight": {
+            "type": "color",
+            "value": "{colors.secondary.200}"
+          },
+          "accent": {
+            "type": "color",
+            "value": "{colors.secondary.500}"
           }
         },
         "tonal": {
           "background": {
             "type": "color",
-            "value": "{colors.secondary.200}"
+            "value": "{colors.secondary.100}"
           },
           "foreground": {
             "type": "color",
@@ -211,35 +265,59 @@ export const semanticTokens = defineSemanticTokens({
           },
           "border": {
             "type": "color",
-            "value": "{colors.secondary.400}"
+            "value": "{colors.secondary.700}"
+          },
+          "highlight": {
+            "type": "color",
+            "value": "{colors.secondary.600}"
+          },
+          "accent": {
+            "type": "color",
+            "value": "{colors.mono.off-white}"
           }
         }
       },
       "default": {
         "background": {
           "type": "color",
-          "value": "{colors.white.100}"
+          "value": "{colors.secondary.100}"
         },
         "foreground": {
           "type": "color",
           "value": "{colors.text.body}"
+        },
+        "highlight": {
+          "type": "color",
+          "value": "{colors.primary.400}"
+        },
+        "accent": {
+          "type": "color",
+          "value": "{colors.mono.off-white}"
         }
       },
       "contrast": {
         "background": {
           "type": "color",
-          "value": "{colors.neutral.900}"
+          "value": "{colors.neutral.800}"
         },
         "foreground": {
           "type": "color",
-          "value": "{colors.white.100}"
+          "value": "{colors.mono.off-white}"
+        },
+        "highlight": {
+          "type": "color",
+          "value": "{colors.primary.400}"
+        },
+        "accent": {
+          "type": "color",
+          "value": "{colors.neutral.700}"
         }
       },
       "tertiary": {
         "subdued": {
           "background": {
             "type": "color",
-            "value": "{colors.tertiary.100}"
+            "value": "{colors.tertiary.50}"
           },
           "foreground": {
             "type": "color",
@@ -247,26 +325,20 @@ export const semanticTokens = defineSemanticTokens({
           },
           "border": {
             "type": "color",
-            "value": "{colors.tertiary.400}"
+            "value": "{colors.tertiary.700}"
+          },
+          "highlight": {
+            "type": "color",
+            "value": "{colors.tertiary.600}"
+          },
+          "accent": {
+            "type": "color",
+            "value": "{colors.mono.off-white}"
           }
         },
         "contrast": {
           "background": {
             "type": "color",
-            "value": "{colors.tertiary.900}"
-          },
-          "foreground": {
-            "type": "color",
-            "value": "{colors.tertiary.100}"
-          },
-          "border": {
-            "type": "color",
-            "value": "{colors.tertiary.400}"
-          }
-        },
-        "vibrant": {
-          "background": {
-            "type": "color",
             "value": "{colors.tertiary.800}"
           },
           "foreground": {
@@ -275,176 +347,360 @@ export const semanticTokens = defineSemanticTokens({
           },
           "border": {
             "type": "color",
-            "value": "{colors.tertiary.400}"
+            "value": "{colors.tertiary.100}"
+          },
+          "highlight": {
+            "type": "color",
+            "value": "{colors.tertiary.300}"
+          },
+          "accent": {
+            "type": "color",
+            "value": "{colors.tertiary.700}"
+          }
+        },
+        "vibrant": {
+          "background": {
+            "type": "color",
+            "value": "{colors.tertiary.700}"
+          },
+          "foreground": {
+            "type": "color",
+            "value": "{colors.tertiary.50}"
+          },
+          "border": {
+            "type": "color",
+            "value": "{colors.tertiary.500}"
+          },
+          "highlight": {
+            "type": "color",
+            "value": "{colors.tertiary.200}"
+          },
+          "accent": {
+            "type": "color",
+            "value": "{colors.tertiary.500}"
           }
         },
         "tonal": {
           "background": {
             "type": "color",
-            "value": "{colors.tertiary.200}"
+            "value": "{colors.tertiary.100}"
           },
           "foreground": {
             "type": "color",
-            "value": "{colors.tertiary.700}"
+            "value": "{colors.tertiary.800}"
           },
           "border": {
             "type": "color",
-            "value": "{colors.tertiary.400}"
+            "value": "{colors.tertiary.700}"
+          },
+          "highlight": {
+            "type": "color",
+            "value": "{colors.tertiary.600}"
+          },
+          "accent": {
+            "type": "color",
+            "value": "{colors.mono.off-white}"
           }
-        }
-      },
-      "campaign": {
-        "background": {
-          "type": "color",
-          "value": "{colors.tertiary.100}"
-        },
-        "foreground": {
-          "type": "color",
-          "value": "{colors.tertiary.800}"
-        }
-      },
-      'navbar': {
-        'base': {
-          'background': {
-            'value': '{colors.primary.900}',
-          },
-          'foreground': {
-            'value': '{colors.primary.100}',
-          },
-        },
-        'top': {
-          'background': {
-            'value': '{colors.primary.950}',
-          },
-          'foreground': {
-            'value': '{colors.primary.100}',
-          },
         }
       }
     },
     "action": {
-      "cta": {
-        "background": {
-          "default": { "value": "{colors.quarternary.900}" },
-          "hover": { "value": "{colors.quarternary.800}" },
-          "active": { "value": "{colors.quarternary.950}" }
-        },
-        "foreground": {
-          "default": { "value": "{colors.quarternary.100}" }
-        }
-      },
       "primary": {
         "background": {
-          "default": { "value": "{colors.primary.800}" },
-          "hover": { "value": "{colors.primary.600}" },
-          "active": { "value": "{colors.primary.800}" }
+          "default": {
+            "type": "color",
+            "value": "{colors.primary.800}"
+          },
+          "hover": {
+            "type": "color",
+            "value": "{colors.primary.800}"
+          },
+          "active": {
+            "type": "color",
+            "value": "{colors.primary.800}"
+          }
         },
         "foreground": {
-          "default": { "value": "{colors.primary.50}" }
-        },
-        "border": {
-          "default": { "value": "{colors.primary.700}" }
-        }
-      },
-      "secondary": {
-        "background": {
-          "default": { "value": "{colors.secondary.100}" },
-          "hover": { "value": "{colors.secondary.50}" },
-          "active": { "value": "{colors.secondary.300}" }
-        },
-        "foreground": {
-          "default": { "value": "{colors.secondary.800}" }
-        },
-        "border": {
-          "default": { "value": "{colors.secondary.700}" }
+          "default": {
+            "type": "color",
+            "value": "{colors.neutral.50}"
+          }
         }
       },
       "text": {
         "foreground": {
-          "default": { "value": "{colors.primary.800}" },
-          "hover": { "value": "{colors.primary.600}" },
-          "active": { "value": "{colors.primary.900}" }
+          "default": {
+            "type": "color",
+            "value": "{colors.primary.800}"
+          },
+          "hover": {
+            "type": "color",
+            "value": "{colors.primary.800}"
+          },
+          "active": {
+            "type": "color",
+            "value": "{colors.primary.800}"
+          }
+        }
+      },
+      "disabled": {
+        "background": {
+          "type": "color",
+          "value": "{colors.neutral.50}"
+        },
+        "foreground": {
+          "type": "color",
+          "value": "{colors.neutral.600}"
+        },
+        "contrast": {
+          "type": "color",
+          "value": "{colors.neutral.100}"
+        }
+      },
+      "secondary": {
+        "background": {
+          "default": {
+            "type": "color",
+            "value": "{colors.primary.200}"
+          },
+          "hover": {
+            "type": "color",
+            "value": "{colors.primary.200}"
+          },
+          "active": {
+            "type": "color",
+            "value": "{colors.primary.200}"
+          }
+        },
+        "foreground": {
+          "default": {
+            "type": "color",
+            "value": "{colors.primary.800}"
+          }
+        }
+      },
+      "cta": {
+        "background": {
+          "default": {
+            "type": "color",
+            "value": "{colors.primary.400}"
+          },
+          "hover": {
+            "type": "color",
+            "value": "{colors.primary.400}"
+          },
+          "active": {
+            "type": "color",
+            "value": "{colors.primary.400}"
+          }
+        },
+        "foreground": {
+          "default": {
+            "type": "color",
+            "value": "{colors.neutral.50}"
+          }
         }
       },
       "destructive": {
         "background": {
-          "default": { "value": "{colors.error.700}" },
-          "hover": { "value": "{colors.error.600}" },
-          "active": { "value": "{colors.error.800}" }
+          "default": {
+            "type": "color",
+            "value": "{colors.error.400}"
+          },
+          "active": {
+            "type": "color",
+            "value": "{colors.error.400}"
+          },
+          "hover": {
+            "type": "color",
+            "value": "{colors.error.400}"
+          }
         },
         "foreground": {
-          "default": { "value": "{colors.error.50}" }
-        },
-        "border": {
-          "default": { "value": "{colors.error.700}" }
+          "default": {
+            "type": "color",
+            "value": "{colors.error.50}"
+          }
         }
-      },
-      "disabled": {
-        "background": { "value": "{colors.neutral.50}" },
-        "foreground": { "value": "{colors.neutral.700}" }
       }
-    },
-    'sizes': {
-      'logo': {
-        'navbar': {
-          'value': {
-            base: '100px',
-            lg: '110px'
-          }
-        },
-        'footer': {
-          'value': {
-            base: '100px',
-            lg: '120px'
-          }
-        }
-      },
     },
     "commerce": {
       "rating": {
         "type": "color",
-        "value": "{colors.tertiary.300}"
+        "value": "{colors.alert.200}"
       },
       "campaign": {
         "background": {
           "type": "color",
-          "value": "{colors.tertiary.600}"
+          "value": "{colors.tertiary.50}"
         },
         "foreground": {
           "type": "color",
-          "value": "{colors.tertiary.100}"
+          "value": "{colors.tertiary.800}"
         },
         "text": {
           "type": "color",
-          "value": "{colors.tertiary.900}"
+          "value": "{colors.tertiary.600}"
+        },
+        "accent": {
+          "type": "color",
+          "value": "{colors.tertiary.100}"
         }
+      }
+    }
+  },
+  "spacing": {
+    "none": {
+      "value": "{spacing.0}"
+    },
+    "tight": {
+      "value": {
+        "base": "{spacing.3}",
+        "md": "{spacing.4}",
+        "lg": "{spacing.5}"
+      }
+    },
+    "snug": {
+      "value": {
+        "base": "{spacing.5}",
+        "md": "{spacing.6}",
+        "lg": "{spacing.7}"
+      }
+    },
+    "normal": {
+      "value": {
+        "base": "{spacing.6}",
+        "md": "{spacing.7}",
+        "lg": "{spacing.8}"
+      }
+    },
+    "relaxed": {
+      "value": {
+        "base": "{spacing.7}",
+        "md": "{spacing.8}",
+        "lg": "{spacing.9}"
+      }
+    },
+    "loose": {
+      "value": {
+        "base": "{spacing.8}",
+        "md": "{spacing.9}",
+        "lg": "{spacing.10}"
+      }
+    },
+    "x-loose": {
+      "value": {
+        "base": "{spacing.10}",
+        "md": "{spacing.11}",
+        "lg": "{spacing.12}"
+      }
+    },
+    "xx-loose": {
+      "value": {
+        "base": "{spacing.11}",
+        "md": "{spacing.12}",
+        "lg": "{spacing.13}"
+      }
+    },
+    "app": {
+      "value": {
+        "base": "{spacing.6}",
+        "md": "{spacing.8}",
+        "lg": "{spacing.10}"
       }
     }
   },
   "radii": {
     "interactive": {
-      "type": "dimension",
       "value": "{radii.4}"
-    },
-    "image": {
-      "content": {
-        "type": "dimension",
-        "value": "{radii.4}"
-      }
     },
     "surface": {
       "sm": {
-        "type": "dimension",
-        "value": "{radii.4}"
+        "value": "{radii.6}"
       },
       "md": {
-        "type": "dimension",
-        "value": "{radii.6}"
+        "value": "{radii.7}"
       }
     },
     "forms": {
-      "type": "dimension",
-      "value": "{radii.2}"
+      "value": "{radii.0}"
     }
   },
+  "sizes": {
+    "screens": {
+      "smallMobile": {
+        "value": "320px"
+      }
+    },
+    "container": {
+      "wide": {
+        "value": "{sizes.containers.2xl}"
+      },
+      "normal": {
+        "value": "{sizes.containers.xl}"
+      },
+      "slim": {
+        "value": "{sizes.containers.lg}"
+      },
+      "tight": {
+        "value": "{sizes.containers.md}"
+      }
+    }
+  },
+  "fontSizes": {
+    "xs": {
+      "value": {
+        "base": "{fontSizes.mobileXs}",
+        "lg": "{fontSizes.desktopXs}"
+      }
+    },
+    "sm": {
+      "value": {
+        "base": "{fontSizes.mobileSm}",
+        "lg": "{fontSizes.desktopSm}"
+      }
+    },
+    "md": {
+      "value": {
+        "base": "{fontSizes.mobileMd}",
+        "lg": "{fontSizes.desktopMd}"
+      }
+    },
+    "lg": {
+      "value": {
+        "base": "{fontSizes.mobileLg}",
+        "lg": "{fontSizes.desktopLg}"
+      }
+    },
+    "xl": {
+      "value": {
+        "base": "{fontSizes.mobileXl}",
+        "lg": "{fontSizes.desktopXl}"
+      }
+    },
+    "2xl": {
+      "value": {
+        "base": "{fontSizes.mobile2xl}",
+        "lg": "{fontSizes.desktop2xl}"
+      }
+    },
+    "3xl": {
+      "value": {
+        "base": "{fontSizes.mobile3xl}",
+        "lg": "{fontSizes.desktop3xl}"
+      }
+    },
+    "4xl": {
+      "value": {
+        "base": "{fontSizes.mobile4xl}",
+        "lg": "{fontSizes.desktop4xl}"
+      }
+    },
+    "5xl": {
+      "value": {
+        "base": "{fontSizes.mobile5xl}",
+        "lg": "{fontSizes.desktop5xl}"
+      }
+    }
+  }
 });

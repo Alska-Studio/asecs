@@ -1,14 +1,20 @@
 import type { LogOptions } from 'vite';
+import type { AwsLocalApiGatewayPlugin } from '@agapi-development-tools/aws-local-api/vite';
 
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig, createLogger } from 'vite';
+import { tsImport } from 'tsx/esm/api';
 import mkcert from 'vite-plugin-mkcert';
 
 import { sveltePhosphorOptimize } from 'phosphor-svelte/vite';
+
 import parachutePlugin from '@agapi-development-tools/parachute/vite';
 import { viteEnvExport } from '@agapi-development-tools/vite-sveltekit-env';
-
 import { colors as Colors } from '@agapi-development-tools/common-utilities';
+
+const { default: awsLocalApiGatewayPlugin }: { default: AwsLocalApiGatewayPlugin } = await tsImport('@agapi-development-tools/aws-local-api/vite', {
+  tsconfig: './tsconfig._api.json', parentURL: import.meta.url
+});
 
 const PREFIX = Colors.red('♥');
 const LOGGER = createLogger();
@@ -22,7 +28,14 @@ export default defineConfig(({ mode, command }) => {
       sveltePhosphorOptimize(),
       sveltekit(),
       viteEnvExport(),
-      mkcert() as any
+      awsLocalApiGatewayPlugin({
+        watch: true,
+        api: {
+          port: 3001, // NextJS Payload CMS App is using port 3000
+          routes: [ { dir: 'media', prefix: '/media' } ]
+        }
+      }),
+      mkcert()
     ],
     optimizeDeps: {
       exclude: ['phosphor-svelte', 'agapi-ui']
@@ -35,6 +48,9 @@ export default defineConfig(({ mode, command }) => {
       sourcemap: true,
       rollupOptions: {
         external: ['@agapi/ui', 'phosphor-svelte']
+      },
+      output: {
+        format: 'cjs'
       }
     },
     esbuild: {
@@ -56,10 +72,10 @@ export default defineConfig(({ mode, command }) => {
     server: command === 'serve'
       ? {
           proxy: {
-            '/apiv2': {
-              target: 'http://localhost:3000/api',
+            '/media': {
+              target: 'http://localhost:3001/media',
               changeOrigin: true,
-              rewrite: (path) => path.replace(/^\/apiv2/, '')
+              rewrite: (path) => path.replace(/^\/media/, '')
             }
           },
           port: 5173

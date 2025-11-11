@@ -7,7 +7,8 @@ import { preprocessMeltUI, sequence } from '@melt-ui/pp';
 const getVersion = () => {
   try {
     return child_process.execSync('git rev-parse HEAD').toString().trim();
-  } catch (_e) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  } catch (e) {
     return 'unknown'; // If no commit has been made, the version will be unknown
   }
 };
@@ -28,12 +29,15 @@ const config = {
     adapter: awsAdapter({ apiInput: './src/api', lambdasInput: './src/lambdas' }),
     alias: {
       '~': './',
-      $storefront: './src',
-      $panda: './styled-system',
-      $types: './src/types',
-      $payload: './src/lib/server/payload.ts',
       '@payload-config': '../_shared/src/payload.config.ts',
-      '@payload-types': '../_shared/src/payload.types.ts'
+      $components: './src/lib/components',
+      $lib: './src/lib',
+      $panda: './styled-system',
+      $payload: './src/lib/server/payload.ts',
+      $server: './src/lib/server',
+      $storefront: './src',
+      $types: './src/types',
+      $utils: './src/lib/utils'
     },
     paths: {
       relative: false

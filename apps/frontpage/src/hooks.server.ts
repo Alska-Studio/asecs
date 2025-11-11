@@ -1,4 +1,6 @@
 import type { Handle } from '@sveltejs/kit';
+import type { TypedLocale } from 'payload';
+
 import { sequence } from '@sveltejs/kit/hooks';
 import crypto from 'node:crypto';
 
@@ -7,7 +9,7 @@ import { getLocaleAndFlattenedUrl, localizeUrl } from '$lib/parachute/routes';
 
 export const parachuteHandle: Handle = async ({ event, resolve }) => {
   const { locale, flattenedUrl } = getLocaleAndFlattenedUrl(event.url);
-  (event.locals as any)['parachute'] = { locale };
+  event.locals.parachute = { locale, typedLocale: locale as TypedLocale };
 
   // Handle the case where the URL is not properly localized and is
   // using english routes for a differerent locale
@@ -22,13 +24,13 @@ export const parachuteHandle: Handle = async ({ event, resolve }) => {
         return html;
       }
       return html.replace('%lang%', locale);
-    },
+    }
   });
-}
+};
 
 const blacklist = [
   '/.well-known/appspecific/com.chrome.devtools'
-]
+];
 
 const middleLayer: Handle = async ({ event, resolve }) => {
   if (dev) { // In dev mode only, a mkcert workaround to avoid the SSL error when calling the API locally from the server
@@ -44,6 +46,6 @@ const middleLayer: Handle = async ({ event, resolve }) => {
   }
 
   return resolve(event);
-}
+};
 
 export const handle = sequence(parachuteHandle, middleLayer);
